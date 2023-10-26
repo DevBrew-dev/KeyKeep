@@ -3,10 +3,10 @@ package dev.devbrew.keykeep.services
 import dev.devbrew.keykeep.database.APIKeysTable
 import dev.devbrew.keykeep.database.CustomersTable
 import dev.devbrew.keykeep.database.IPAddressesTable
+import io.github.cdimascio.dotenv.dotenv
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
-import io.github.cdimascio.dotenv.dotenv
 
 
 object DatabaseService {

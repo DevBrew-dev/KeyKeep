@@ -1,6 +1,8 @@
 package dev.devbrew.keykeep
 
-import dev.devbrew.keykeep.plugins.*
+import dev.devbrew.keykeep.plugins.configureMonitoring
+import dev.devbrew.keykeep.plugins.configureRouting
+import dev.devbrew.keykeep.plugins.configureSerialization
 import dev.devbrew.keykeep.routes.apiKeyValidationRoute
 import dev.devbrew.keykeep.routes.registerRegistrationRoute
 import dev.devbrew.keykeep.services.DatabaseService
@@ -9,7 +11,6 @@ import io.ktor.server.auth.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.routing.*
-import kotlinx.serialization.Serializable
 
 fun main() {
     DatabaseService.init()
@@ -41,8 +42,3 @@ fun Application.module() {
         apiKeyValidationRoute()
     }
 }
-
-
-@Serializable
-data class RegistrationRequest(val customerName: String, val allowedIps: Int)
-

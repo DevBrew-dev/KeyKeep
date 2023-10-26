@@ -1,15 +1,16 @@
 package dev.devbrew.keykeep.routes
 
-import dev.devbrew.keykeep.RegistrationRequest
-import org.jetbrains.exposed.sql.transactions.transaction
 import dev.devbrew.keykeep.database.APIKey
 import dev.devbrew.keykeep.database.Customer
+import dev.devbrew.keykeep.database.CustomersTable
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.auth.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.serialization.Serializable
+import org.jetbrains.exposed.sql.transactions.transaction
 import java.util.*
 
 fun Routing.registerRegistrationRoute() {
@@ -17,7 +18,7 @@ fun Routing.registerRegistrationRoute() {
         post("/register") {
             val request = call.receive<RegistrationRequest>()
             val customer = transaction {
-                Customer.new {
+                Customer.find { CustomersTable.name eq request.customerName }.singleOrNull() ?: Customer.new {
                     name = request.customerName
                 }
             }
@@ -26,13 +27,16 @@ fun Routing.registerRegistrationRoute() {
                     customerId = customer
                     this.apiKey = generateApiKey()
                     allowedIPs = request.allowedIps
+                    information = request.information // assigning information
                 }
             }
             call.respond(HttpStatusCode.Created, apiKey.apiKey)
         }
     }
 }
-data class RegistrationRequest(val customerName: String, val allowedIps: Int)
+
+@Serializable
+data class RegistrationRequest(val customerName: String, val allowedIps: Int, val information: String)
 
 fun generateApiKey(): String {
     // Implement your API key generation logic here

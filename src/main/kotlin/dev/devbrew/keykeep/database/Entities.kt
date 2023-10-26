@@ -19,6 +19,7 @@ object APIKeysTable : IntIdTable() {
     val customerId = reference("customer_id", CustomersTable)
     val apiKey = varchar("api_key", length = 50).uniqueIndex()
     val allowedIPs = integer("allowed_ips")
+    val information = varchar("information", length = 255)  // ensure this is included
 }
 
 class APIKey(id: EntityID<Int>) : IntEntity(id) {
@@ -27,6 +28,7 @@ class APIKey(id: EntityID<Int>) : IntEntity(id) {
     var customerId by Customer referencedOn APIKeysTable.customerId
     var apiKey by APIKeysTable.apiKey
     var allowedIPs by APIKeysTable.allowedIPs
+    var information by APIKeysTable.information  // ensure this is included
 }
 
 object IPAddressesTable : IntIdTable() {
