@@ -1,8 +1,8 @@
-# KeyKeep - JAR File Licensing System
+# KeyKeep - Minecraft JAR File Licensing System
 
 ## Overview
 
-KeyKeep is a robust licensing system designed to manage licenses for JAR files. It is built using Kotlin, JetBrains Exposed, and leverages Neon for database storage. 
+KeyKeep is a robust licensing system designed to manage licenses for Minecraft JAR files. It is built using Kotlin, JetBrains Exposed, and leverages Neon for database storage.
 
 ## Features
 
