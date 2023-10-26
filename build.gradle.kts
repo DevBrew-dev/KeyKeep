@@ -48,6 +48,7 @@ dependencies {
     implementation("io.ktor:ktor-server-cors:$ktor_version")
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
     implementation("org.postgresql:postgresql:42.6.0")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.0")
 
 }
 

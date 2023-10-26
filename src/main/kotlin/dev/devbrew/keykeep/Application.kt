@@ -1,6 +1,7 @@
 package dev.devbrew.keykeep
 
 import dev.devbrew.keykeep.plugins.*
+import dev.devbrew.keykeep.routes.apiKeyValidationRoute
 import dev.devbrew.keykeep.routes.registerRegistrationRoute
 import dev.devbrew.keykeep.services.DatabaseService
 import io.ktor.server.application.*
@@ -37,6 +38,7 @@ fun Application.module() {
     configureRouting()
     routing {
         registerRegistrationRoute()
+        apiKeyValidationRoute()
     }
 }
 
