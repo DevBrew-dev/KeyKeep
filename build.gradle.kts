@@ -8,10 +8,10 @@ val h2_version: String by project
 val prometheus_version: String = "0.11.0"
 
 plugins {
-    kotlin("jvm") version "1.9.10" // Update to the latest version if available
+    kotlin("jvm") version "1.9.20" // Update to the latest version if available
     id("io.ktor.plugin") version "2.3.5"
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.10"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.9.20"
 }
 
 group = "dev.devbrew.keykeep"

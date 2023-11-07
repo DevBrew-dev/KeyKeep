@@ -12,7 +12,7 @@ KeyKeep is a robust licensing system designed to manage licenses for Minecraft J
 
 ## Requirements
 
-- Kotlin 1.9.10
+- Kotlin 1.9.20
 - JetBrains Exposed
 - Neon Database
 
