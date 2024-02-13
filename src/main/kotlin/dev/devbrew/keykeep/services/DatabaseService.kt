@@ -21,7 +21,11 @@ object DatabaseService {
         )
         //init tables if not present
         transaction {
-            SchemaUtils.createMissingTablesAndColumns(CustomersTable, APIKeysTable, IPAddressesTable)
+            SchemaUtils.createMissingTablesAndColumns(
+                CustomersTable,
+                APIKeysTable,
+                IPAddressesTable
+            )
         }
     }
 }
